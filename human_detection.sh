@@ -20,7 +20,7 @@ python voc_labels.py
 cat 2007_train.txt 2007_val.txt 2012_*.txt > train.txt
 
 # Change config files
-cd darknet/
+cd darknet
 rm cfg/voc.data
 wget https://gist.githubusercontent.com/ankurankan/df557a00c40d2949942188e41b828a50/raw/4c8e7624bf9150474292482406d4f3c227e52490/voc.data
 
@@ -32,7 +32,7 @@ wget http://pjreddie.com/media/files/darknet19_448.conv.23
 
 # Setup darknet
 git clone https://github.com/pjreddie/darknet
-cd darknet/
+cd darknet
 rm Makefile
 wget https://gist.githubusercontent.com/ankurankan/effb677dba7a9bc9f0039b75c9c4aa60/raw/a2bfd0c0dfc24ea09f86676f00554f7a7e31e081/Makefile
 cd
@@ -50,11 +50,11 @@ sudo cp -P lib64/libcudnn* /usr/lib/x86_64-linux-gnu/
 sudo chmod a+r /usr/lib/x86_64-linux-gnu/libcudnn*
 
 # Add cuda bin to path
-echo 'export PATH = "/usr/local/cuda/bin/:$PATH"' >> ~/.bashrc
+echo 'export PATH="/usr/local/cuda/bin/:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
 # Make darknet
-cd darknet/
+cd darknet
 make
 
 # Train the model
