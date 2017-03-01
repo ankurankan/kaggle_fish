@@ -2,7 +2,7 @@
 
 # Install cuda
 wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
-dpkg -i ./cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+sudo dpkg -i ./cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo apt-get update
 sudo apt-get install cuda -y
 
@@ -20,7 +20,7 @@ python voc_labels.py
 cat 2007_train.txt 2007_val.txt 2012_*.txt > train.txt
 
 # Change config files
-cd darknet
+cd /home/ankurankan/darknet
 rm cfg/voc.data
 wget https://gist.githubusercontent.com/ankurankan/df557a00c40d2949942188e41b828a50/raw/4c8e7624bf9150474292482406d4f3c227e52490/voc.data
 
@@ -32,7 +32,7 @@ wget http://pjreddie.com/media/files/darknet19_448.conv.23
 
 # Setup darknet
 git clone https://github.com/pjreddie/darknet
-cd darknet
+cd /home/ankurankan/darknet
 rm Makefile
 wget https://gist.githubusercontent.com/ankurankan/effb677dba7a9bc9f0039b75c9c4aa60/raw/a2bfd0c0dfc24ea09f86676f00554f7a7e31e081/Makefile
 cd
@@ -44,7 +44,7 @@ sudo apt-get install htop libopencv-dev python-opencv -y
 # Setup cnn
 # Transfer the file
 tar -xvf cudnn-8.0-linux-x64-v5.1.tgz
-cd cuda
+cd /home/ankurankan/cuda
 sudo cp -P include/cudnn.h /usr/include
 sudo cp -P lib64/libcudnn* /usr/lib/x86_64-linux-gnu/
 sudo chmod a+r /usr/lib/x86_64-linux-gnu/libcudnn*
@@ -54,7 +54,7 @@ echo 'export PATH="/usr/local/cuda/bin/:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 
 # Make darknet
-cd darknet
+cd /home/ankurankan/darknet
 make
 
 # Train the model
